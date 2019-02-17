@@ -1,0 +1,38 @@
+﻿@page
+@model EntApp_1.Pages.wsbModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>wsb</title>
+</head>
+<body>
+    <form method="post">
+        <label for=" Number1">Please enter a number from 1 - 10</label>
+        <input type="number" id="Number1" name="Number1" value="@Model.Number1" />
+        <button type="submit">Submit First Number</button>
+        <br />
+        <label for=" Number2">Please enter another number from 1 - 10</label>
+        <input type="number" id="Number2" name="Number2" value="@Model.Number2" />
+        <button type="submit">Submit Second Number</button>
+
+        <br />
+        <label for="add">add</label>
+        <input type="radio" name="Result" id="add" value="add" />
+        <label for="subtract">subtract</label>
+        <input type="radio" name="Result" id="subtract" value="subtract" />
+        <label for="multiply">multiply</label>
+        <input type="radio" name="Result" id="multiply" value="multiply" />
+        <label for="divide">divide</label>
+        <input type="radio" name="Result" id="divide" value="divide" />
+    </form>
+    @Model.Message
+    @Model.MyMessage
+</body>
+</html>

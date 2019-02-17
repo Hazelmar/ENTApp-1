@@ -1,0 +1,54 @@
+﻿@page
+@model EntApp_1.Pages.TimeModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Time</title>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Select all days you work</legend>
+
+            @for (int i = 0; i < Model.Days.Length; i++)
+            {
+                <input type="checkbox" asp-for=DaysChosen[i] />
+                <label asp-for=DaysChosen[i]>@Model.Days[i]</label>
+            }
+            <br />
+            <select asp-for=Monthchosen asp-items=Model.Months></select>
+            <br />
+            <button type="submit">Submit</button>
+
+        </fieldset>
+    </form>
+
+    @if (Model.HttpContext.Request.Method == "POST")
+    {
+        @if (Model.Monthchosen.Count == 0)
+        {
+            <h3>You picked no months</h3>
+        }
+        else
+        {
+            <h3>You have chosen </h3>
+            <ul>
+
+                @foreach (string month in Model.Monthchosen)
+                {
+                    <li>@Model.Monthchosen</li>
+                }
+
+
+            </ul>
+        }
+    }
+</body>
+</html>
